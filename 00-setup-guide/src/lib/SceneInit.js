@@ -4,17 +4,29 @@ import Stats from 'three/examples/jsm/libs/stats.module';
 
 export default class SceneInit {
   constructor(canvasId) {
+    // NOTE: Core components to initialize Three.js app.
+    this.scene = undefined;
+    this.camera = undefined;
+    this.renderer = undefined;
+
+    // NOTE: Camera params;
     this.fov = 45;
+    this.nearPlane = 1;
+    this.farPlane = 1000;
     this.canvasId = canvasId;
 
-    this.scene = undefined;
+    // NOTE: Additional components.
+    this.clock = undefined;
     this.stats = undefined;
-    this.camera = undefined;
     this.controls = undefined;
-    this.renderer = undefined;
+
+    // NOTE: Lighting is basically required.
+    this.spotLight = undefined;
+    this.ambientLight = undefined;
   }
 
   initialize() {
+    this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(
       this.fov,
       window.innerWidth / window.innerHeight,
@@ -23,8 +35,34 @@ export default class SceneInit {
     );
     this.camera.position.z = 96;
 
+    // NOTE: Specify a canvas which is already created in the HTML.
+    const canvas = document.getElementById(this.canvasId);
+    this.renderer = new THREE.WebGLRenderer({
+      canvas,
+      // NOTE: Anti-aliasing smooths out the edges.
+      antialias: true,
+    });
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(this.renderer.domElement);
+
     this.clock = new THREE.Clock();
-    this.scene = new THREE.Scene();
+    this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+    this.stats = Stats();
+    document.body.appendChild(this.stats.dom);
+
+    // ambient light which is for the whole scene
+    this.ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    this.ambientLight.castShadow = true;
+    this.scene.add(this.ambientLight);
+
+    // spot light which is illuminating the chart directly
+    this.spotLight = new THREE.SpotLight(0xffffff, 1);
+    this.spotLight.castShadow = true;
+    this.spotLight.position.set(0, 64, 32);
+    this.scene.add(this.spotLight);
+
+    // if window resizes
+    window.addEventListener('resize', () => this.onWindowResize(), false);
 
     // NOTE: Load space background.
     // this.loader = new THREE.TextureLoader();
@@ -36,36 +74,6 @@ export default class SceneInit {
     //   colorB: { type: 'vec3', value: new THREE.Color(0xfff000) },
     //   colorA: { type: 'vec3', value: new THREE.Color(0xffffff) },
     // };
-
-    // specify a canvas which is already created in the HTML file and tagged by an id
-    // aliasing enabled
-    const canvas = document.getElementById(this.canvasId);
-    this.renderer = new THREE.WebGLRenderer({
-      canvas,
-      antialias: true,
-    });
-
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(this.renderer.domElement);
-
-    this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-
-    this.stats = Stats();
-    document.body.appendChild(this.stats.dom);
-
-    // ambient light which is for the whole scene
-    let ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-    ambientLight.castShadow = true;
-    this.scene.add(ambientLight);
-
-    // spot light which is illuminating the chart directly
-    let spotLight = new THREE.SpotLight(0xffffff, 1);
-    spotLight.castShadow = true;
-    spotLight.position.set(0, 64, 32);
-    this.scene.add(spotLight);
-
-    // if window resizes
-    window.addEventListener('resize', () => this.onWindowResize(), false);
   }
 
   animate() {
