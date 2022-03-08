@@ -14,12 +14,13 @@ function App() {
 
     // PART 1
     // Adding geometries to a three.js scene.
-    // const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
+    // const boxGeometry = new THREE.BoxGeometry(1, 1, 1, 1, 1, 16);
     // const boxMaterial = new THREE.MeshNormalMaterial({ wireframe: true });
     // const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
     // boxMesh.position.x = -1;
     // test.scene.add(boxMesh);
-    // const cylinderGeometry = new THREE.CylinderGeometry(0.5, 0.5, 1, 8);
+
+    // const cylinderGeometry = new THREE.CylinderGeometry(0.5, 0.5, 1, 32, 16);
     // const cylinderMaterial = new THREE.MeshNormalMaterial({ wireframe: true });
     // const cylinderMesh = new THREE.Mesh(cylinderGeometry, cylinderMaterial);
     // cylinderMesh.position.x = 1;
@@ -44,7 +45,7 @@ function App() {
     //       }
     //     `;
     // }
-    // const geometry = new THREE.BoxGeometry(1, 1, 1, 16, 16, 16);
+    // const geometry = new THREE.BoxGeometry(1, 1, 1, 1, 1, 1);
     // const material = new THREE.ShaderMaterial({
     //   uniforms: test.uniforms,
     //   fragmentShader: fragmentShader(),
@@ -57,22 +58,22 @@ function App() {
 
     // PART 3
     // Showcase "hidden" geometries.
-    // const roundedBoxGeometry = new RoundedBoxGeometry(1, 1, 1, 4, 0.1);
-    // const roundedBoxMaterial = new THREE.MeshNormalMaterial({
-    //   wireframe: true,
-    // });
-    // const roundedBoxMesh = new THREE.Mesh(
-    //   roundedBoxGeometry,
-    //   roundedBoxMaterial
-    // );
-    // roundedBoxMesh.position.x = -1;
-    // test.scene.add(roundedBoxMesh);
+    const roundedBoxGeometry = new RoundedBoxGeometry(1, 1, 1, 4, 0.1);
+    const roundedBoxMaterial = new THREE.MeshNormalMaterial({
+      wireframe: true,
+    });
+    const roundedBoxMesh = new THREE.Mesh(
+      roundedBoxGeometry,
+      roundedBoxMaterial
+    );
+    roundedBoxMesh.position.x = -1;
+    test.scene.add(roundedBoxMesh);
 
-    // const teapotGeometry = new TeapotGeometry(0.5, 8);
-    // const teapotMaterial = new THREE.MeshNormalMaterial({ wireframe: true });
-    // const teapotMesh = new THREE.Mesh(teapotGeometry, teapotMaterial);
-    // teapotMesh.position.x = 1;
-    // test.scene.add(teapotMesh);
+    const teapotGeometry = new TeapotGeometry(0.5, 8);
+    const teapotMaterial = new THREE.MeshNormalMaterial({ wireframe: true });
+    const teapotMesh = new THREE.Mesh(teapotGeometry, teapotMaterial);
+    teapotMesh.position.x = 1;
+    test.scene.add(teapotMesh);
 
     // const animate = () => {
     //   boxMesh.rotateX(0.001);
