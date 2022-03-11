@@ -20,12 +20,12 @@ function App() {
     const gui = new GUI();
 
     // PART 2 - Changing Geometry (scale, rotation)
-    gui.add(boxMesh.rotation, 'x', 0, Math.PI).name('Rotate X Axis');
-    gui.add(boxMesh.rotation, 'y', 0, Math.PI).name('Rotate Y Axis');
-    gui.add(boxMesh.rotation, 'z', 0, Math.PI).name('Rotate Z Axis');
-    gui.add(boxMesh.scale, 'x', 0, 2).name('Scale X Axis');
-    gui.add(boxMesh.scale, 'y', 0, 2).name('Scale Y Axis');
-    gui.add(boxMesh.scale, 'z', 0, 2).name('Scale Z Axis');
+    // gui.add(boxMesh.rotation, 'x', 0, Math.PI).name('Rotate X Axis');
+    // gui.add(boxMesh.rotation, 'y', 0, Math.PI).name('Rotate Y Axis');
+    // gui.add(boxMesh.rotation, 'z', 0, Math.PI).name('Rotate Z Axis');
+    // gui.add(boxMesh.scale, 'x', 0, 2).name('Scale X Axis');
+    // gui.add(boxMesh.scale, 'y', 0, 2).name('Scale Y Axis');
+    // gui.add(boxMesh.scale, 'z', 0, 2).name('Scale Z Axis');
 
     // PART 3 - Updating Material (color, wireframe)
     // const materialParams = {
@@ -37,26 +37,26 @@ function App() {
     //   .onChange((value) => boxMesh.material.color.set(value));
 
     // PART 4 - Refactor GUI with Folders
-    // const geometryFolder = gui.addFolder('Mesh Geometry');
-    // geometryFolder.open();
-    // const rotationFolder = geometryFolder.addFolder('Rotation');
-    // rotationFolder.add(boxMesh.rotation, 'x', 0, Math.PI).name('Rotate X Axis');
-    // rotationFolder.add(boxMesh.rotation, 'y', 0, Math.PI).name('Rotate Y Axis');
-    // rotationFolder.add(boxMesh.rotation, 'z', 0, Math.PI).name('Rotate Z Axis');
-    // const scaleFolder = geometryFolder.addFolder('Scale');
-    // scaleFolder.add(boxMesh.scale, 'x', 0, 2).name('Scale X Axis');
-    // scaleFolder.add(boxMesh.scale, 'y', 0, 2).name('Scale Y Axis');
-    // scaleFolder.add(boxMesh.scale, 'z', 0, 2).name('Scale Z Axis');
-    // scaleFolder.open();
+    const geometryFolder = gui.addFolder('Mesh Geometry');
+    geometryFolder.open();
+    const rotationFolder = geometryFolder.addFolder('Rotation');
+    rotationFolder.add(boxMesh.rotation, 'x', 0, Math.PI).name('Rotate X Axis');
+    rotationFolder.add(boxMesh.rotation, 'y', 0, Math.PI).name('Rotate Y Axis');
+    rotationFolder.add(boxMesh.rotation, 'z', 0, Math.PI).name('Rotate Z Axis');
+    const scaleFolder = geometryFolder.addFolder('Scale');
+    scaleFolder.add(boxMesh.scale, 'x', 0, 2).name('Scale X Axis');
+    scaleFolder.add(boxMesh.scale, 'y', 0, 2).name('Scale Y Axis');
+    scaleFolder.add(boxMesh.scale, 'z', 0, 2).name('Scale Z Axis');
+    scaleFolder.open();
 
-    // const materialFolder = gui.addFolder('Mesh Material');
-    // const materialParams = {
-    //   boxMeshColor: boxMesh.material.color.getHex(),
-    // };
-    // materialFolder.add(boxMesh.material, 'wireframe');
-    // materialFolder
-    //   .addColor(materialParams, 'boxMeshColor')
-    //   .onChange((value) => boxMesh.material.color.set(value));
+    const materialFolder = gui.addFolder('Mesh Material');
+    const materialParams = {
+      boxMeshColor: boxMesh.material.color.getHex(),
+    };
+    materialFolder.add(boxMesh.material, 'wireframe');
+    materialFolder
+      .addColor(materialParams, 'boxMeshColor')
+      .onChange((value) => boxMesh.material.color.set(value));
 
     // PART 5 - Custom Function
     // const customFunctionFolder = gui.addFolder('Custom Function');
