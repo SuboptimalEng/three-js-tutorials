@@ -1,4 +1,4 @@
-# 3️⃣ Three.js Tutorials
+# 🥉 Learn Three.js
 
 The code for my Three.js tutorial series on YouTube.
 
