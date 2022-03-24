@@ -26,6 +26,11 @@ function App() {
     // cylinderMesh.position.x = 1;
     // test.scene.add(cylinderMesh);
 
+    // const torusGeometry = new THREE.TorusGeometry(0.5, 0.25, 20, 20);
+    // const torusMaterial = new THREE.MeshNormalMaterial({ wireframe: true });
+    // const torusMesh = new THREE.Mesh(torusGeometry, torusMaterial);
+    // test.scene.add(torusMesh);
+
     // PART 2
     // Why add width/height segments for a geometry?
     // function vertexShader() {
