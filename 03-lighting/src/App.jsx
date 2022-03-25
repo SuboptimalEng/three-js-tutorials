@@ -107,7 +107,7 @@ function App() {
     slFolder.add(sl, 'castShadow');
     slFolder.open();
 
-    const pl = new THREE.PointLight(0xffffff, 2, 8, 2);
+    const pl = new THREE.PointLight(0xffffff, 1, 8, 2);
     pl.position.set(2, 2, 2);
     const plHelper = new THREE.PointLightHelper(pl, 0.5);
     mainGroup.add(pl, plHelper);
@@ -122,6 +122,7 @@ function App() {
       pl.visible = value;
       plHelper.visible = value;
     });
+    plFolder.add(pl, 'intensity', 0, 2, 0.25);
     plFolder.add(pl.position, 'x', -2, 2, 0.5);
     plFolder.add(pl.position, 'y', -2, 2, 0.5);
     plFolder.add(pl.position, 'z', -2, 2, 0.5);
