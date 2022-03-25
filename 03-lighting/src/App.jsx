@@ -15,7 +15,7 @@ function App() {
     const gui = new GUI();
 
     // set up ground
-    const groundGeometry = new THREE.BoxGeometry(6, 0.5, 6);
+    const groundGeometry = new THREE.BoxGeometry(8, 0.5, 8);
     const groundMaterial = new THREE.MeshPhongMaterial({ color: 0xfafafa });
     const groundMesh = new THREE.Mesh(groundGeometry, groundMaterial);
     groundMesh.receiveShadow = true;
@@ -50,19 +50,30 @@ function App() {
 
     // set up ambient light settings
     const alFolder = gui.addFolder('ambient light');
+    const alSettings = { color: al.color.getHex() };
     alFolder.add(al, 'intensity', 0, 1, 0.25);
+    alFolder
+      .addColor(alSettings, 'color')
+      .onChange((value) => al.color.set(value));
     alFolder.open();
 
-    // setup directional light
-    const dl = new THREE.DirectionalLight(0xff0000, 1);
+    // setup directional light + helper
+    const dl = new THREE.DirectionalLight(0xffffff, 0.5);
     dl.position.set(0, 2, 0);
     test.scene.add(dl);
     const dlHelper = new THREE.DirectionalLightHelper(dl, 3);
     test.scene.add(dlHelper);
 
     // set up directional light settings
-    const dlSettings = { color: dl.color.getHex() };
+    const dlSettings = {
+      visible: true,
+      color: dl.color.getHex(),
+    };
     const dlFolder = gui.addFolder('directional light');
+    dlFolder.add(dlSettings, 'visible').onChange((value) => {
+      dl.visible = value;
+      dlHelper.visible = value;
+    });
     dlFolder.add(dl, 'intensity', 0, 1, 0.25);
     dlFolder.add(dl.position, 'y', 1, 4, 0.5);
     dlFolder.add(dl, 'castShadow');
@@ -71,9 +82,30 @@ function App() {
       .onChange((value) => dl.color.set(value));
     dlFolder.open();
 
-    // set up spot light
-    // const spotLight = new THREE.SpotLight(0xffffff, 1);
-    // const spotLightHelper = new THREE.SpotLightHelper(spotLight);
+    // set up spot light + helper
+    const sl = new THREE.SpotLight(0xffffff, 1, 8, Math.PI / 8, 0);
+    sl.position.set(0, 2, 2);
+    test.scene.add(sl);
+    const slHelper = new THREE.SpotLightHelper(sl);
+    test.scene.add(slHelper);
+
+    const slSettings = {
+      visible: true,
+      color: sl.color.getHex(),
+    };
+    const slFolder = gui.addFolder('spot light');
+    slFolder.add(slSettings, 'visible').onChange((value) => {
+      sl.visible = value;
+      slHelper.visible = value;
+    });
+    slFolder.add(sl, 'intensity', 0, 4);
+    slFolder.add(sl, 'angle', Math.PI / 16, Math.PI / 2);
+    slFolder.add(sl, 'castShadow');
+    slFolder
+      .addColor(slSettings, 'color')
+      .onChange((value) => sl.color.set(value));
+    slFolder.open();
+
     // spotLight.castShadow = true;
     // spotLight.position.set(0, 1, 0);
     // test.scene.add(spotLight);
