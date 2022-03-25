@@ -14,13 +14,18 @@ function App() {
     // initialize gui
     const gui = new GUI();
 
+    // main group
+    const mainGroup = new THREE.Group();
+    mainGroup.position.y = 0.5;
+    test.scene.add(mainGroup);
+
     // set up ground
     const groundGeometry = new THREE.BoxGeometry(8, 0.5, 8);
     const groundMaterial = new THREE.MeshPhongMaterial({ color: 0xfafafa });
     const groundMesh = new THREE.Mesh(groundGeometry, groundMaterial);
     groundMesh.receiveShadow = true;
     groundMesh.position.y = -2;
-    test.scene.add(groundMesh);
+    mainGroup.add(groundMesh);
 
     // set up box meshes
     const bg1 = new THREE.BoxGeometry(1, 1, 1);
@@ -28,25 +33,25 @@ function App() {
     const boxMesh1 = new THREE.Mesh(bg1, bm1);
     boxMesh1.castShadow = true;
     boxMesh1.position.x = -2;
-    test.scene.add(boxMesh1);
+    mainGroup.add(boxMesh1);
 
     const bg2 = new THREE.BoxGeometry(1, 1, 1);
     const bm2 = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
     const boxMesh2 = new THREE.Mesh(bg2, bm2);
     boxMesh2.castShadow = true;
     boxMesh2.position.x = 0;
-    test.scene.add(boxMesh2);
+    mainGroup.add(boxMesh2);
 
     const bg3 = new THREE.BoxGeometry(1, 1, 1);
     const bm3 = new THREE.MeshPhongMaterial({ color: 0x0000ff });
     const boxMesh3 = new THREE.Mesh(bg3, bm3);
     boxMesh3.castShadow = true;
     boxMesh3.position.x = 2;
-    test.scene.add(boxMesh3);
+    mainGroup.add(boxMesh3);
 
     // set up ambient light
     const al = new THREE.AmbientLight(0xffffff, 0.5);
-    test.scene.add(al);
+    mainGroup.add(al);
 
     // set up ambient light gui
     const alFolder = gui.addFolder('ambient light');
@@ -62,7 +67,7 @@ function App() {
     const dl = new THREE.DirectionalLight(0xff0000, 0.5);
     dl.position.set(0, 2, 0);
     const dlHelper = new THREE.DirectionalLightHelper(dl, 3);
-    test.scene.add(dl, dlHelper);
+    mainGroup.add(dl, dlHelper);
 
     // set up directional light gui
     const dlSettings = {
@@ -86,7 +91,7 @@ function App() {
     const sl = new THREE.SpotLight(0x00ff00, 1, 8, Math.PI / 8, 0);
     sl.position.set(0, 2, 2);
     const slHelper = new THREE.SpotLightHelper(sl);
-    test.scene.add(sl, slHelper);
+    mainGroup.add(sl, slHelper);
 
     // set up spot light gui
     const slSettings = {
@@ -104,8 +109,8 @@ function App() {
 
     const pl = new THREE.PointLight(0xffffff, 2, 8, 2);
     pl.position.set(2, 2, 2);
-    const plHelper = new THREE.PointLightHelper(pl, 1);
-    test.scene.add(pl, plHelper);
+    const plHelper = new THREE.PointLightHelper(pl, 0.5);
+    mainGroup.add(pl, plHelper);
 
     // set up point light gui
     const plSettings = {
