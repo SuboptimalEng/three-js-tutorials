@@ -33,7 +33,7 @@ export default class SceneInit {
       1,
       1000
     );
-    this.camera.position.z = 96;
+    this.camera.position.z = 16;
 
     // NOTE: Specify a canvas which is already created in the HTML.
     const canvas = document.getElementById(this.canvasId);
@@ -43,6 +43,8 @@ export default class SceneInit {
       antialias: true,
     });
     this.renderer.setSize(window.innerWidth, window.innerHeight);
+    // enable this for shadows
+    this.renderer.shadowMap.enabled = true;
     document.body.appendChild(this.renderer.domElement);
 
     this.clock = new THREE.Clock();
@@ -50,16 +52,16 @@ export default class SceneInit {
     this.stats = Stats();
     document.body.appendChild(this.stats.dom);
 
+    // HIDE LIGHTING FOR DEMO.
     // ambient light which is for the whole scene
-    this.ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-    this.ambientLight.castShadow = true;
-    this.scene.add(this.ambientLight);
-
+    // this.ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    // this.ambientLight.castShadow = true;
+    // this.scene.add(this.ambientLight);
     // spot light which is illuminating the chart directly
-    this.spotLight = new THREE.SpotLight(0xffffff, 1);
-    this.spotLight.castShadow = true;
-    this.spotLight.position.set(0, 64, 32);
-    this.scene.add(this.spotLight);
+    // this.spotLight = new THREE.SpotLight(0xffffff, 1);
+    // this.spotLight.castShadow = true;
+    // this.spotLight.position.set(0, 64, 32);
+    // this.scene.add(this.spotLight);
 
     // if window resizes
     window.addEventListener('resize', () => this.onWindowResize(), false);
