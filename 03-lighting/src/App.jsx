@@ -19,6 +19,12 @@ function App() {
     mainGroup.position.y = 0.5;
     test.scene.add(mainGroup);
 
+    // normal box
+    // const bg0 = new THREE.BoxGeometry(1, 1, 1);
+    // const bm0 = new THREE.MeshNormalMaterial();
+    // const boxMesh0 = new THREE.Mesh(bg0, bm0);
+    // test.scene.add(boxMesh0);
+
     // set up ground
     const groundGeometry = new THREE.BoxGeometry(8, 0.5, 8);
     const groundMaterial = new THREE.MeshPhongMaterial({ color: 0xfafafa });
@@ -27,7 +33,7 @@ function App() {
     groundMesh.position.y = -2;
     mainGroup.add(groundMesh);
 
-    // set up box meshes
+    // set up red box mesh
     const bg1 = new THREE.BoxGeometry(1, 1, 1);
     const bm1 = new THREE.MeshPhongMaterial({ color: 0xff0000 });
     const boxMesh1 = new THREE.Mesh(bg1, bm1);
@@ -35,6 +41,7 @@ function App() {
     boxMesh1.position.x = -2;
     mainGroup.add(boxMesh1);
 
+    // set up green box mesh
     const bg2 = new THREE.BoxGeometry(1, 1, 1);
     const bm2 = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
     const boxMesh2 = new THREE.Mesh(bg2, bm2);
@@ -42,6 +49,7 @@ function App() {
     boxMesh2.position.x = 0;
     mainGroup.add(boxMesh2);
 
+    // set up blue box mesh
     const bg3 = new THREE.BoxGeometry(1, 1, 1);
     const bm3 = new THREE.MeshPhongMaterial({ color: 0x0000ff });
     const boxMesh3 = new THREE.Mesh(bg3, bm3);
