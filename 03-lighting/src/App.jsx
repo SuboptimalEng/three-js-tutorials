@@ -33,6 +33,16 @@ function App() {
     groundMesh.position.y = -2;
     mainGroup.add(groundMesh);
 
+    // set up torus for youtube thumbnail
+    // const bg1 = new THREE.TorusGeometry(1.5, 0.75, 64, 64);
+    // const bm1 = new THREE.MeshNormalMaterial({ color: 0xff0000 });
+    // const boxMesh1 = new THREE.Mesh(bg1, bm1);
+    // boxMesh1.castShadow = true;
+    // boxMesh1.position.y = 1;
+    // boxMesh1.position.z = 1;
+    // boxMesh1.rotation.x = -Math.PI / 3;
+    // mainGroup.add(boxMesh1);
+
     // set up red box mesh
     const bg1 = new THREE.BoxGeometry(1, 1, 1);
     const bm1 = new THREE.MeshPhongMaterial({ color: 0xff0000 });
@@ -72,10 +82,12 @@ function App() {
     alFolder.open();
 
     // setup directional light + helper
-    const dl = new THREE.DirectionalLight(0xff0000, 0.5);
-    dl.position.set(0, 2, 0);
+    const dl = new THREE.DirectionalLight(0xffffff, 0.5);
+    dl.position.set(0, 2, 2);
+    dl.castShadow = true;
     const dlHelper = new THREE.DirectionalLightHelper(dl, 3);
-    mainGroup.add(dl, dlHelper);
+    mainGroup.add(dl);
+    mainGroup.add(dlHelper);
 
     // set up directional light gui
     const dlSettings = {
@@ -123,7 +135,7 @@ function App() {
     // set up point light gui
     const plSettings = {
       visible: true,
-      color: sl.color.getHex(),
+      color: pl.color.getHex(),
     };
     const plFolder = gui.addFolder('point light');
     plFolder.add(plSettings, 'visible').onChange((value) => {
@@ -135,6 +147,9 @@ function App() {
     plFolder.add(pl.position, 'y', -2, 2, 0.5);
     plFolder.add(pl.position, 'z', -2, 2, 0.5);
     plFolder.add(pl, 'castShadow');
+    plFolder
+      .addColor(plSettings, 'color')
+      .onChange((value) => pl.color.set(value));
     plFolder.open();
   }, []);
 
