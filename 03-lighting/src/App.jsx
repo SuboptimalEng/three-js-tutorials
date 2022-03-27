@@ -83,7 +83,9 @@ function App() {
 
     // setup directional light + helper
     const dl = new THREE.DirectionalLight(0xffffff, 0.5);
-    dl.position.set(0, 2, 2);
+    // use this for YouTube thumbnail
+    // dl.position.set(0, 2, 2);
+    dl.position.set(0, 2, 0);
     dl.castShadow = true;
     const dlHelper = new THREE.DirectionalLightHelper(dl, 3);
     mainGroup.add(dl);
