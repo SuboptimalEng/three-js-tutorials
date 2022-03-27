@@ -75,7 +75,7 @@ function App() {
     const alFolder = gui.addFolder('ambient light');
     const alSettings = { color: al.color.getHex() };
     alFolder.add(al, 'visible');
-    alFolder.add(al, 'intensity', 0, 1, 0.25);
+    alFolder.add(al, 'intensity', 0, 1, 0.1);
     alFolder
       .addColor(alSettings, 'color')
       .onChange((value) => al.color.set(value));
@@ -84,12 +84,12 @@ function App() {
     // setup directional light + helper
     const dl = new THREE.DirectionalLight(0xffffff, 0.5);
     // use this for YouTube thumbnail
-    // dl.position.set(0, 2, 2);
-    dl.position.set(0, 2, 0);
+    dl.position.set(0, 2, 2);
+    // dl.position.set(0, 2, 0);
     dl.castShadow = true;
     const dlHelper = new THREE.DirectionalLightHelper(dl, 3);
     mainGroup.add(dl);
-    mainGroup.add(dlHelper);
+    // mainGroup.add(dlHelper);
 
     // set up directional light gui
     const dlSettings = {
@@ -145,9 +145,9 @@ function App() {
       plHelper.visible = value;
     });
     plFolder.add(pl, 'intensity', 0, 2, 0.25);
-    plFolder.add(pl.position, 'x', -2, 2, 0.5);
-    plFolder.add(pl.position, 'y', -2, 2, 0.5);
-    plFolder.add(pl.position, 'z', -2, 2, 0.5);
+    plFolder.add(pl.position, 'x', -2, 4, 0.5);
+    plFolder.add(pl.position, 'y', -2, 4, 0.5);
+    plFolder.add(pl.position, 'z', -2, 4, 0.5);
     plFolder.add(pl, 'castShadow');
     plFolder
       .addColor(plSettings, 'color')
