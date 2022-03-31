@@ -10,16 +10,25 @@ function App() {
     test.initialize();
     test.animate();
 
-    const uvTexture = new THREE.TextureLoader().load('./assets/uv.png');
-    const crateTexture = new THREE.TextureLoader().load('./assets/crate.png');
-    const earthTexture = new THREE.TextureLoader().load('./assets/earth.jpeg');
+    // Part 0
+    // const boxGeometry = new THREE.BoxGeometry(4, 4, 4);
+    // const boxMaterial = new THREE.MeshNormalMaterial();
+    // const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
+    // test.scene.add(boxMesh);
 
-    const spaceTexture = new THREE.TextureLoader().load('./assets/space.jpeg');
+    // Part 1
+    // const spaceTexture = new THREE.TextureLoader().load('./assets/space.jpeg');
     // spaceTexture.wrapS = THREE.RepeatWrapping;
     // spaceTexture.wrapT = THREE.RepeatWrapping;
     // spaceTexture.repeat.set(2, 2);
-    test.scene.background = spaceTexture;
+    // test.scene.background = spaceTexture;
 
+    // Part 2
+    // const uvTexture = new THREE.TextureLoader().load('./assets/uv.png');
+    // const crateTexture = new THREE.TextureLoader().load('./assets/crate.png');
+    // const earthTexture = new THREE.TextureLoader().load('./assets/earth.jpeg');
+
+    // Part 1.5
     const ge0 = new THREE.BoxGeometry(7, 7, 7);
     const me0 = new THREE.MeshStandardMaterial({
       // map: uvTexture,
