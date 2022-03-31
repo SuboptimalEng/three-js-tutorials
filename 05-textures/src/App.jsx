@@ -17,21 +17,21 @@ function App() {
     // test.scene.add(boxMesh);
 
     // Part 1
-    // const spaceTexture = new THREE.TextureLoader().load('./assets/space.jpeg');
-    // spaceTexture.wrapS = THREE.RepeatWrapping;
-    // spaceTexture.wrapT = THREE.RepeatWrapping;
-    // spaceTexture.repeat.set(2, 2);
-    // test.scene.background = spaceTexture;
+    const spaceTexture = new THREE.TextureLoader().load('./assets/space.jpeg');
+    spaceTexture.wrapS = THREE.RepeatWrapping;
+    spaceTexture.wrapT = THREE.RepeatWrapping;
+    spaceTexture.repeat.set(2, 2);
+    test.scene.background = spaceTexture;
 
     // Part 2
-    // const uvTexture = new THREE.TextureLoader().load('./assets/uv.png');
-    // const crateTexture = new THREE.TextureLoader().load('./assets/crate.png');
-    // const earthTexture = new THREE.TextureLoader().load('./assets/earth.jpeg');
+    const uvTexture = new THREE.TextureLoader().load('./assets/uv.png');
+    const crateTexture = new THREE.TextureLoader().load('./assets/crate.png');
+    const earthTexture = new THREE.TextureLoader().load('./assets/earth.jpeg');
 
     // Part 1.5
     const ge0 = new THREE.BoxGeometry(7, 7, 7);
     const me0 = new THREE.MeshStandardMaterial({
-      // map: uvTexture,
+      map: uvTexture,
     });
     const boxMe0 = new THREE.Mesh(ge0, me0);
     boxMe0.position.x = -9;
@@ -40,7 +40,7 @@ function App() {
 
     const ge1 = new THREE.BoxGeometry(7, 7, 7);
     const me1 = new THREE.MeshStandardMaterial({
-      // map: crateTexture,
+      map: crateTexture,
     });
     const boxMe1 = new THREE.Mesh(ge1, me1);
     boxMe1.position.x = 0;
@@ -49,7 +49,7 @@ function App() {
 
     const ge2 = new THREE.BoxGeometry(7, 7, 7);
     const me2 = new THREE.MeshStandardMaterial({
-      // map: earthTexture,
+      map: earthTexture,
     });
     const boxMe2 = new THREE.Mesh(ge2, me2);
     boxMe2.position.x = 9;
@@ -58,7 +58,7 @@ function App() {
 
     const ge3 = new THREE.SphereGeometry(4);
     const me3 = new THREE.MeshStandardMaterial({
-      // map: uvTexture,
+      map: uvTexture,
     });
     const sphereMe3 = new THREE.Mesh(ge3, me3);
     sphereMe3.position.x = -9;
@@ -67,7 +67,7 @@ function App() {
 
     const ge4 = new THREE.SphereGeometry(4);
     const me4 = new THREE.MeshStandardMaterial({
-      // map: crateTexture,
+      map: crateTexture,
     });
     const sphereMe4 = new THREE.Mesh(ge4, me4);
     sphereMe4.position.x = 0;
@@ -76,7 +76,7 @@ function App() {
 
     const ge5 = new THREE.SphereGeometry(4);
     const me5 = new THREE.MeshStandardMaterial({
-      // map: earthTexture,
+      map: earthTexture,
     });
     const sphereMe5 = new THREE.Mesh(ge5, me5);
     sphereMe5.position.x = 9;
