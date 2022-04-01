@@ -50,8 +50,8 @@ function App() {
 
     const ge2 = new THREE.BoxGeometry(7, 7, 7);
     const me2 = new THREE.MeshStandardMaterial({
-      // map: earthTexture,
-      map: brickTexture,
+      map: earthTexture,
+      // map: brickTexture,
     });
     const boxMe2 = new THREE.Mesh(ge2, me2);
     boxMe2.position.x = 9;
@@ -78,8 +78,8 @@ function App() {
 
     const ge5 = new THREE.SphereGeometry(4);
     const me5 = new THREE.MeshStandardMaterial({
-      // map: earthTexture,
-      map: brickTexture,
+      map: earthTexture,
+      // map: brickTexture,
     });
     const sphereMe5 = new THREE.Mesh(ge5, me5);
     sphereMe5.position.x = 9;
