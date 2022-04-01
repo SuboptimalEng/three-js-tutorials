@@ -27,6 +27,7 @@ function App() {
     const uvTexture = new THREE.TextureLoader().load('./assets/uv.png');
     const crateTexture = new THREE.TextureLoader().load('./assets/crate.png');
     const earthTexture = new THREE.TextureLoader().load('./assets/earth.jpeg');
+    const brickTexture = new THREE.TextureLoader().load('./assets/brick.jpeg');
 
     // Part 1.5
     const ge0 = new THREE.BoxGeometry(7, 7, 7);
@@ -49,7 +50,8 @@ function App() {
 
     const ge2 = new THREE.BoxGeometry(7, 7, 7);
     const me2 = new THREE.MeshStandardMaterial({
-      map: earthTexture,
+      // map: earthTexture,
+      map: brickTexture,
     });
     const boxMe2 = new THREE.Mesh(ge2, me2);
     boxMe2.position.x = 9;
@@ -76,7 +78,8 @@ function App() {
 
     const ge5 = new THREE.SphereGeometry(4);
     const me5 = new THREE.MeshStandardMaterial({
-      map: earthTexture,
+      // map: earthTexture,
+      map: brickTexture,
     });
     const sphereMe5 = new THREE.Mesh(ge5, me5);
     sphereMe5.position.x = 9;
