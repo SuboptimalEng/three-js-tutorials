@@ -16,18 +16,28 @@ function App() {
     // const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
     // test.scene.add(boxMesh);
 
-    // Part 1
-    const spaceTexture = new THREE.TextureLoader().load('./assets/space.jpeg');
-    spaceTexture.wrapS = THREE.RepeatWrapping;
-    spaceTexture.wrapT = THREE.RepeatWrapping;
-    spaceTexture.repeat.set(2, 2);
-    test.scene.background = spaceTexture;
+    // // Part 1
+    // const spaceTexture = new THREE.TextureLoader().load('./assets/space.jpeg');
+    // spaceTexture.wrapS = THREE.RepeatWrapping;
+    // spaceTexture.wrapT = THREE.RepeatWrapping;
+    // spaceTexture.repeat.set(2, 2);
+    // test.scene.background = spaceTexture;
 
-    // Part 2
+    // // Part 2
     const uvTexture = new THREE.TextureLoader().load('./assets/uv.png');
     const crateTexture = new THREE.TextureLoader().load('./assets/crate.png');
     const earthTexture = new THREE.TextureLoader().load('./assets/earth.jpeg');
     const brickTexture = new THREE.TextureLoader().load('./assets/brick.jpeg');
+
+    // Thumbnail
+    // const tgeo = new THREE.BoxGeometry(15, 15, 15);
+    // const tmat = new THREE.MeshStandardMaterial({
+    //   map: crateTexture,
+    // });
+    // const tmesh = new THREE.Mesh(tgeo, tmat);
+    // tmesh.rotation.y = Math.PI / 4;
+    // tmesh.rotation.x = Math.PI / 8;
+    // test.scene.add(tmesh);
 
     // Part 1.5
     const ge0 = new THREE.BoxGeometry(7, 7, 7);
@@ -50,8 +60,8 @@ function App() {
 
     const ge2 = new THREE.BoxGeometry(7, 7, 7);
     const me2 = new THREE.MeshStandardMaterial({
-      map: earthTexture,
-      // map: brickTexture,
+      // map: earthTexture,
+      map: brickTexture,
     });
     const boxMe2 = new THREE.Mesh(ge2, me2);
     boxMe2.position.x = 9;
@@ -74,12 +84,13 @@ function App() {
     const sphereMe4 = new THREE.Mesh(ge4, me4);
     sphereMe4.position.x = 0;
     sphereMe4.position.y = 5;
+    sphereMe4.rotation.y = -Math.PI / 2;
     test.scene.add(sphereMe4);
 
     const ge5 = new THREE.SphereGeometry(4);
     const me5 = new THREE.MeshStandardMaterial({
-      map: earthTexture,
-      // map: brickTexture,
+      // map: earthTexture,
+      map: brickTexture,
     });
     const sphereMe5 = new THREE.Mesh(ge5, me5);
     sphereMe5.position.x = 9;
