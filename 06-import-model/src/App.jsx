@@ -19,16 +19,15 @@ function App() {
     // const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
     // test.scene.add(boxMesh);
 
+    // let loadedModel;
     const glftLoader = new GLTFLoader();
-    let loadedModel;
     glftLoader.load('./assets/shiba/scene.gltf', (gltfScene) => {
-      loadedModel = gltfScene;
-      console.log(loadedModel);
-      // Transform object
-      gltfScene.scene.rotation.y = Math.PI / 8;
-      gltfScene.scene.position.y = 3;
+      // loadedModel = gltfScene;
+      // console.log(loadedModel);
 
-      gltfScene.scene.scale.set(10, 10, 10);
+      // gltfScene.scene.rotation.y = Math.PI / 8;
+      // gltfScene.scene.position.y = 3;
+      // gltfScene.scene.scale.set(10, 10, 10);
       test.scene.add(gltfScene.scene);
     });
 
