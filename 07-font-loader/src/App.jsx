@@ -15,9 +15,9 @@ function App() {
     test.animate();
 
     // part 0 - comment out template code
-    // const boxGeometry = new THREE.BoxGeometry(16, 16, 16);
-    // const boxMaterial = new THREE.MeshNormalMaterial();
-    // const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
+    const boxGeometry = new THREE.BoxGeometry(16, 16, 16);
+    const boxMaterial = new THREE.MeshNormalMaterial();
+    const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
     // test.scene.add(boxMesh);
 
     // part 1 - typeface.json font loader
@@ -40,25 +40,21 @@ function App() {
 
     // part 2 - true type font loader
     const ttfLoader = new TTFLoader();
-    ttfLoader.load(
-      // 'node_modules/three/examples/fonts/ttf/kenpixel.ttf',
-      'node_modules/three/examples/fonts/ttf/kenpixel.ttf',
-      (json) => {
-        // First parse the font.
-        const kenpixelFont = fontLoader.parse(json);
-        // Use parsed font as normal.
-        const textGeometry = new TextGeometry('hello world', {
-          height: 2,
-          size: 10,
-          font: kenpixelFont,
-        });
-        const textMaterial = new THREE.MeshNormalMaterial();
-        const textMesh = new THREE.Mesh(textGeometry, textMaterial);
-        textMesh.position.x = -50;
-        textMesh.position.y = -15;
-        test.scene.add(textMesh);
-      }
-    );
+    ttfLoader.load('fonts/jet_brains_mono_regular.ttf', (json) => {
+      // First parse the font.
+      const jetBrainsFont = fontLoader.parse(json);
+      // Use parsed font as normal.
+      const textGeometry = new TextGeometry('hello world', {
+        height: 2,
+        size: 10,
+        font: jetBrainsFont,
+      });
+      const textMaterial = new THREE.MeshNormalMaterial();
+      const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+      textMesh.position.x = -46;
+      textMesh.position.y = -10;
+      test.scene.add(textMesh);
+    });
   }, []);
 
   return (
