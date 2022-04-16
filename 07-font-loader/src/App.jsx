@@ -25,15 +25,15 @@ function App() {
     fontLoader.load(
       'node_modules/three/examples/fonts/droid/droid_serif_regular.typeface.json',
       (droidFont) => {
-        const textGeometry = new TextGeometry('hello world', {
-          height: 2,
-          size: 10,
+        const textGeometry = new TextGeometry('hello\nthree.js', {
+          size: 20,
+          height: 10,
           font: droidFont,
         });
         const textMaterial = new THREE.MeshNormalMaterial();
         const textMesh = new THREE.Mesh(textGeometry, textMaterial);
-        textMesh.position.x = -36;
-        textMesh.position.y = 5;
+        textMesh.position.x = -45;
+        textMesh.position.y = 10;
         test.scene.add(textMesh);
       }
     );
@@ -53,7 +53,7 @@ function App() {
       const textMesh = new THREE.Mesh(textGeometry, textMaterial);
       textMesh.position.x = -46;
       textMesh.position.y = -10;
-      test.scene.add(textMesh);
+      // test.scene.add(textMesh);
     });
   }, []);
 
