@@ -71,22 +71,21 @@ function App() {
       raycaster.setFromCamera(pointer, test.camera);
       const intersects = raycaster.intersectObjects(test.scene.children);
 
-      for (let i = 0; i < intersects.length; i++) {
-        console.log(intersects);
+      // for (let i = 0; i < intersects.length; i++) {
+      //   console.log(intersects);
+      // }
+      // change color of objects intersecting the raycaster
+      // for (let i = 0; i < intersects.length; i++) {
+      //   intersects[i].object.material.color.set(0xff0000);
+      // }
+
+      // change color of the closest object intersecting the raycaster
+      if (intersects.length > 0) {
+        intersects[0].object.material.color.set(0xff0000);
       }
     };
 
     window.addEventListener('mousemove', onMouseMove);
-
-    // change color of objects intersecting  the raycaster
-    // for (let i = 0; i < intersects.length; i++) {
-    //   intersects[i].object.material.color.set(0xff0000);
-    // }
-
-    // change color of the closest object intersecting the raycaster
-    // if (intersects.length > 0) {
-    //   intersects[0].object.material.color.set(0xff0000);
-    // }
   }, []);
 
   return (
