@@ -74,6 +74,7 @@ function App() {
       // for (let i = 0; i < intersects.length; i++) {
       //   console.log(intersects);
       // }
+
       // change color of objects intersecting the raycaster
       // for (let i = 0; i < intersects.length; i++) {
       //   intersects[i].object.material.color.set(0xff0000);
