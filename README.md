@@ -11,6 +11,10 @@ The code for my Three.js tutorial series on YouTube.
 
 ## Credits
 
+### 08-raycaster
+
+👉 ["Shiba"](https://sketchfab.com/3d-models/shiba-faef9fe5ace445e7b2989d1c1ece361c) by [zixisun02](https://sketchfab.com/zixisun51) is licensed under [CC Attribution](http://creativecommons.org/licenses/by/4.0/)
+
 ### 06-import-model
 
 👉 ["Shiba"](https://sketchfab.com/3d-models/shiba-faef9fe5ace445e7b2989d1c1ece361c) by [zixisun02](https://sketchfab.com/zixisun51) is licensed under [CC Attribution](http://creativecommons.org/licenses/by/4.0/)

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 
 import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 import SceneInit from './lib/SceneInit';
 
@@ -58,6 +59,15 @@ function App() {
     addNewBoxMesh(0, -2, 2);
     addNewBoxMesh(2, -2, 2);
     addNewBoxMesh(-2, -2, 2);
+
+    // add shiba model
+    const glftLoader = new GLTFLoader();
+    glftLoader.load('./assets/shiba/scene.gltf', (gltfScene) => {
+      gltfScene.scene.position.y = 0.5;
+      gltfScene.scene.position.z = 4;
+      gltfScene.scene.scale.set(1, 1, 1);
+      test.scene.add(gltfScene.scene);
+    });
 
     const pointer = new THREE.Vector2();
     const raycaster = new THREE.Raycaster();
