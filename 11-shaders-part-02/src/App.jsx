@@ -74,6 +74,77 @@ function App() {
     // });
     // const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
     // test.scene.add(boxMesh);
+
+    // varying variables - passed from vertex to fragment shader
+    // const boxGeometry = new THREE.BoxGeometry(16, 16, 16, 16, 16, 16);
+    // const boxMaterial = new THREE.ShaderMaterial({
+    //   wireframe: true,
+    //   vertexShader: `
+    //   varying vec3 pos;
+    //   void main()	{
+    //     pos = position;
+    //     gl_Position = projectionMatrix
+    //       * modelViewMatrix
+    //       * vec4(position.x, 4.0*sin(position.z/4.0) + position.y, position.z, 1.0);
+    //   }
+    //   `,
+    //   fragmentShader: `
+    //   varying vec3 pos;
+    //   void main() {
+    //     // gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+    //     // gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
+    //     if (pos.x >= 0.0) {
+    //       gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+    //     } else {
+    //       gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
+    //     }
+    //   }
+    //   `,
+    // });
+    // const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
+    // test.scene.add(boxMesh);
+
+    // uniform variables - passed from program to shaders
+    const boxGeometry = new THREE.BoxGeometry(16, 16, 16, 16, 16, 16);
+    const boxMaterial = new THREE.ShaderMaterial({
+      wireframe: true,
+      vertexShader: `
+      varying vec3 pos;
+      void main()	{
+        pos = position;
+        // projectionMatrix, modelViewMatrix, position -> passed in from Three.js
+        // gl_Position = projectionMatrix
+        //   * modelViewMatrix
+        //   * vec4(position.x, position.y, position.z, 1.0);
+        // gl_Position = projectionMatrix
+        //   * modelViewMatrix
+        //   * vec4(position.x, sin(position.z), position.z, 1.0);
+        // gl_Position = projectionMatrix
+        //   * modelViewMatrix
+        //   * vec4(position.x, sin(position.z) + position.y, position.z, 1.0);
+        // gl_Position = projectionMatrix
+        //   * modelViewMatrix
+        //   * vec4(position.x, sin(position.z/4.0) + position.y, position.z, 1.0);
+        gl_Position = projectionMatrix
+          * modelViewMatrix
+          * vec4(position.x, 4.0*sin(position.z/4.0) + position.y, position.z, 1.0);
+      }
+      `,
+      fragmentShader: `
+      varying vec3 pos;
+      void main() {
+        // gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+        // gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
+        if (pos.x >= 0.0) {
+          gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+        } else {
+          gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
+        }
+      }
+      `,
+    });
+    const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
+    test.scene.add(boxMesh);
   }, []);
 
   return (
