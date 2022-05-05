@@ -16,6 +16,9 @@ npm run dev
   <img src="/_thumbnails/01-intro.png" width="50%">
 
 - 02 - [React + Three.js Setup Tutorial](https://www.youtube.com/watch?v=d63N4g8p_wI)
+
+  <img src="/_thumbnails/02-setup-guide.png" width="50%">
+
 - 03 - [Three.js Geometry Tutorial for Beginners](https://www.youtube.com/watch?v=K_CwmMlNmQo)
 - 04 - [Dat.GUI Setup Guide and Tutorial](https://www.youtube.com/watch?v=JyhhHhoqK2o)
 - 05 - [Three.js Lighting Tutorial with Examples](https://www.youtube.com/watch?v=bsLosbweLNE)
