@@ -20,13 +20,36 @@ npm run dev
   <img src="/_thumbnails/02-setup-guide.png" width="50%">
 
 - 03 - [Three.js Geometry Tutorial for Beginners](https://www.youtube.com/watch?v=K_CwmMlNmQo)
+
+  <img src="/_thumbnails/03-geometry.png" width="50%">
+
 - 04 - [Dat.GUI Setup Guide and Tutorial](https://www.youtube.com/watch?v=JyhhHhoqK2o)
+
+  <img src="/_thumbnails/04-dat-gui.png" width="50%">
+
 - 05 - [Three.js Lighting Tutorial with Examples](https://www.youtube.com/watch?v=bsLosbweLNE)
+
+  <img src="/_thumbnails/05-lighting.png" width="50%">
+
 - 06 - [How to Add Textures to 3D Geometry](https://www.youtube.com/watch?v=vLz2Rk1r_gQ)
+
+  <img src="/_thumbnails/06-textures.png" width="50%">
+
 - 07 - [How to Import GLTF Models in Three.js](https://www.youtube.com/watch?v=WBe3xrV4CPM)
+
+  <img src="/_thumbnails/07-import-model.png" width="50%">
+
 - 08 - [How to Load Fonts in a Three.js Scene](https://www.youtube.com/watch?v=l7K9AMnesJQ)
+
+  <img src="/_thumbnails/08-font-loader.png" width="50%">
+
 - 09 - [How to Handle Mouse Input with Raycaster](https://www.youtube.com/watch?v=CbUhot3K-gc)
+
+  <img src="/_thumbnails/09-raycaster.png" width="50%">
+
 - 10 - [Intro to GLSL Vertex + Fragment Shaders](https://www.youtube.com/watch?v=EntBBM6nqQA)
+
+  <img src="/_thumbnails/10-shaders-part-01.png" width="50%">
 
 ## Helpful Resources
 
