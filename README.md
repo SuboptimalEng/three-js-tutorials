@@ -11,6 +11,12 @@ npm install
 npm run dev
 ```
 
+## Motivation
+
+Most Three.js tutorials focus on teaching the fundamentals in plain HTML/CSS/JS. This is a good way to understand the core concepts, but it can be tedious to set up (even if you are an experienced full-stack developer).
+
+This repo (and tutorial series) aims to improve the learning experience for those already familiar with the Node.js ecosystem. What can take 30-60 minutes to set up in HTML/CSS/JS is now reduced down to two NPM commands.
+
 ## YouTube Videos
 
 - 01 - [Introduction to Three.js + 3D Programming](https://www.youtube.com/watch?v=MSZ7nqqgVKc)
