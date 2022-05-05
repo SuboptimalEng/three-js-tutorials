@@ -1,6 +1,8 @@
 # 🥉 Three.js Tutorials
 
-This repo contains the code for my Three.js tutorial series on YouTube. Each folder corresponds to a specific video. Here's an example of how you can run the Dat.GUI demo:
+This repo contains the code for my Three.js tutorial series on YouTube. Each folder is self-contained and corresponds to a specific video. For example, the `04-dat-gui` folder contains the code for the 4th Three.js tutorial (Dat.GUI Setup Guide and Tutorial).
+
+All of these projects are made with React + Three.js so running them locally is super easy. Here's an example of how you can run the `04-dat-gui` demo:
 
 ```
 git clone https://github.com/SuboptimalEng/three-js-tutorials.git
