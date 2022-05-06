@@ -28,58 +28,58 @@ function App() {
     // test.scene.add(boxMesh);
 
     // part 2 - re-write boilerplate code with a shadermaterial
-    // const boxGeometry = new THREE.BoxGeometry(16, 16, 16, 16, 16, 16);
-    // const boxMaterial = new THREE.ShaderMaterial({
-    //   wireframe: true,
-    //   vertexShader: `
-    //   void main()	{
-    //     // projectionMatrix, modelViewMatrix, position -> passed in from Three.js
-    //     gl_Position = projectionMatrix
-    //       * modelViewMatrix
-    //       * vec4(position.x, position.y, position.z, 1.0);
-    //   }
-    //   `,
-    //   fragmentShader: `
-    //   void main() {
-    //     gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
-    //   }
-    //   `,
-    // });
-    // const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
-    // test.scene.add(boxMesh);
-
-    // part 3 - basics of glsl shaders
     const boxGeometry = new THREE.BoxGeometry(16, 16, 16, 16, 16, 16);
     const boxMaterial = new THREE.ShaderMaterial({
       wireframe: true,
       vertexShader: `
       void main()	{
-        // gl_Position = projectionMatrix
-        //   * modelViewMatrix
-        //   * vec4(position.x, position.y, position.z, 1.0);
-        // gl_Position = projectionMatrix
-        //   * modelViewMatrix
-        //   * vec4(position.x, sin(position.z), position.z, 1.0);
-        // gl_Position = projectionMatrix
-        //   * modelViewMatrix
-        //   * vec4(position.x, sin(position.z) + position.y, position.z, 1.0);
-        // gl_Position = projectionMatrix
-        //   * modelViewMatrix
-        //   * vec4(position.x, sin(position.z/4.0) + position.y, position.z, 1.0);
+        // projectionMatrix, modelViewMatrix, position -> passed in from Three.js
         gl_Position = projectionMatrix
           * modelViewMatrix
-          * vec4(position.x, 4.0*sin(position.z/4.0) + position.y, position.z, 1.0);
+          * vec4(position.x, position.y, position.z, 1.0);
       }
       `,
       fragmentShader: `
       void main() {
         gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
-        // gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
       }
       `,
     });
     const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
     test.scene.add(boxMesh);
+
+    // part 3 - basics of glsl shaders
+    // const boxGeometry = new THREE.BoxGeometry(16, 16, 16, 16, 16, 16);
+    // const boxMaterial = new THREE.ShaderMaterial({
+    //   wireframe: true,
+    //   vertexShader: `
+    //   void main()	{
+    //     // gl_Position = projectionMatrix
+    //     //   * modelViewMatrix
+    //     //   * vec4(position.x, position.y, position.z, 1.0);
+    //     // gl_Position = projectionMatrix
+    //     //   * modelViewMatrix
+    //     //   * vec4(position.x, sin(position.z), position.z, 1.0);
+    //     // gl_Position = projectionMatrix
+    //     //   * modelViewMatrix
+    //     //   * vec4(position.x, sin(position.z) + position.y, position.z, 1.0);
+    //     // gl_Position = projectionMatrix
+    //     //   * modelViewMatrix
+    //     //   * vec4(position.x, sin(position.z/4.0) + position.y, position.z, 1.0);
+    //     gl_Position = projectionMatrix
+    //       * modelViewMatrix
+    //       * vec4(position.x, 4.0*sin(position.z/4.0) + position.y, position.z, 1.0);
+    //   }
+    //   `,
+    //   fragmentShader: `
+    //   void main() {
+    //     gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+    //     // gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
+    //   }
+    //   `,
+    // });
+    // const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
+    // test.scene.add(boxMesh);
   }, []);
 
   return (
