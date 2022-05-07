@@ -57,7 +57,7 @@ This repo (and tutorial series) aims to improve the learning experience for thos
 
 - 10 - [Intro to GLSL Vertex + Fragment Shaders](https://www.youtube.com/watch?v=EntBBM6nqQA)
 
-  <img src="/_thumbnails/10-shaders-part-01.png">
+  <!-- <img src="/_thumbnails/10-shaders-part-01.png"> -->
 
 ## Helpful Resources
 
