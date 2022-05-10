@@ -84,7 +84,6 @@ function App() {
       vertexShader: vertexShaderCode,
       fragmentShader: fragmentShaderCode,
     });
-
     const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
     test.scene.add(boxMesh);
   }, []);
