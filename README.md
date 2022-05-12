@@ -57,7 +57,15 @@ This repo (and tutorial series) aims to improve the learning experience for thos
 
 - 10 - [GLSL Vertex + Fragment Shaders Part 01](https://www.youtube.com/watch?v=EntBBM6nqQA)
 
+  <img src="/_thumbnails/10-shaders-part-01.png">
+
 - 11 - [GLSL Vertex + Fragment Shaders Part 02](https://www.youtube.com/watch?v=dRo7SnOJlEM)
+
+  <img src="/_thumbnails/11-shaders-part-02.png">
+
+- 11 - [Writing Shaders in VS Code + Importing GLSL Files in JS](https://www.youtube.com/watch?v=RDughHM9qoE)
+
+  <img src="/_thumbnails/12-shaders-in-vscode.png">
 
 ## Helpful Resources
 
