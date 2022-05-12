@@ -11,17 +11,32 @@ function App() {
     test.animate();
 
     // part 0 - add axis helper
-    const axesHelper = new THREE.AxesHelper(16);
-    test.scene.add(axesHelper);
+    const axisHelper = new THREE.AxesHelper(8);
+    test.scene.add(axisHelper);
 
     // part 1 - boilerplate code
-    const boxGeometry = new THREE.BoxGeometry(24, 4, 24, 24, 4, 24);
-    const boxMaterial = new THREE.MeshStandardMaterial({
-      color: 0xff0000,
-      wireframe: true,
-    });
-    const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
-    test.scene.add(boxMesh);
+    const boxGeometry = new THREE.BoxGeometry(4, 4, 4);
+    const boxMaterial = new THREE.MeshNormalMaterial();
+    const boxMesh1 = new THREE.Mesh(boxGeometry, boxMaterial);
+    boxMesh1.position.x = -4;
+    test.scene.add(boxMesh1);
+    const boxMesh2 = new THREE.Mesh(boxGeometry, boxMaterial);
+    boxMesh2.position.x = 4;
+    test.scene.add(boxMesh2);
+
+    const animate = () => {
+      const elapsedTime = test.clock.getElapsedTime();
+      boxMesh1.position.x = 4 * Math.cos(elapsedTime);
+      boxMesh1.position.y = 4 * Math.sin(elapsedTime);
+      boxMesh2.position.x = -4 * Math.cos(elapsedTime);
+      boxMesh2.position.y = -4 * Math.sin(elapsedTime);
+      window.requestAnimationFrame(animate);
+    };
+    animate();
+
+    // part 2 - group example
+
+    // part 3 - solar system example
   }, []);
 
   return (
