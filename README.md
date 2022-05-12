@@ -63,7 +63,7 @@ This repo (and tutorial series) aims to improve the learning experience for thos
 
   <img src="/_thumbnails/11-shaders-part-02.png">
 
-- 11 - [Writing Shaders in VS Code + Importing GLSL Files in JS](https://www.youtube.com/watch?v=RDughHM9qoE)
+- 12 - [Writing Shaders in VS Code + Importing GLSL Files in JS](https://www.youtube.com/watch?v=RDughHM9qoE)
 
   <img src="/_thumbnails/12-shaders-in-vscode.png">
 
