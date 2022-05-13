@@ -4,9 +4,6 @@ import * as THREE from 'three';
 
 import SceneInit from './lib/SceneInit';
 
-import vertexShaderCode from './a_vertex.glsl';
-import fragmentShaderCode from './a_fragment.glsl';
-
 function App() {
   useEffect(() => {
     const test = new SceneInit('myThreeJsCanvas');
@@ -14,78 +11,112 @@ function App() {
     test.animate();
 
     // part 0 - add axis helper
-    // const axesHelper = new THREE.AxesHelper(16);
-    // test.scene.add(axesHelper);
+    const axesHelper = new THREE.AxesHelper(16);
+    test.scene.add(axesHelper);
 
     // part 1 - boilerplate code
-    // const boxGeometry = new THREE.BoxGeometry(24, 4, 24, 24, 4, 24);
-    // const boxMaterial = new THREE.MeshStandardMaterial({
-    //   color: 0xff0000,
-    //   wireframe: true,
-    // });
+    // const boxGeometry = new THREE.BoxGeometry(8, 8, 8);
+    // const boxMaterial = new THREE.MeshNormalMaterial();
     // const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
     // test.scene.add(boxMesh);
 
-    // define uniform data
-    const uniformData = {
-      u_time: {
-        type: 'f',
-        value: test.clock.getElapsedTime(),
-      },
-    };
-    const render = () => {
-      uniformData.u_time.value = test.clock.getElapsedTime();
-      window.requestAnimationFrame(render);
-    };
-    render();
+    // part 2 - load textures
+    const sunTexture = new THREE.TextureLoader().load('./assets/sun.jpeg');
+    const moonTexture = new THREE.TextureLoader().load('./assets/moon.jpeg');
+    const earthTexture = new THREE.TextureLoader().load('./assets/earth.jpeg');
 
-    // glsl shader
-    // const boxGeometry = new THREE.BoxGeometry(24, 4, 24, 24, 4, 24);
-    // const boxMaterial = new THREE.ShaderMaterial({
-    //   wireframe: true,
-    //   uniforms: uniformData,
-    //   vertexShader: `
-    //   varying vec3 pos;
-    //   uniform float u_time;
-
-    //   void main()	{
-    //     vec4 result;
-    //     pos = position;
-
-    //     result = vec4(
-    //       position.x,
-    //       4.0*sin(position.z/4.0 + u_time) + position.y,
-    //       position.z,
-    //       1.0
-    //     );
-
-    //     gl_Position = projectionMatrix * modelViewMatrix * result;
-    //   }
-    //   `,
-    //   fragmentShader: `
-    //   varying vec3 pos;
-    //   uniform float u_time;
-    //   void main() {
-    //     if (pos.x >= 0.0) {
-    //       gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
-    //     } else {
-    //       gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
-    //     }
-    //   }
-    //   `,
+    // part 2 - set up initial scene with sun + earth
+    // const sunGeometry = new THREE.SphereGeometry(4);
+    // const sunMaterial = new THREE.MeshStandardMaterial({
+    //   map: sunTexture,
     // });
-    // const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
-    // test.scene.add(boxMesh);
+    // const sunMesh = new THREE.Mesh(sunGeometry, sunMaterial);
+    // test.scene.add(sunMesh);
 
-    const boxGeometry = new THREE.BoxGeometry(24, 4, 24, 24, 4, 24);
-    const boxMaterial = new THREE.ShaderMaterial({
-      wireframe: true,
-      uniforms: uniformData,
-      vertexShader: vertexShaderCode,
-      fragmentShader: fragmentShaderCode,
+    // const earthGeometry = new THREE.SphereGeometry(2);
+    // const earthMaterial = new THREE.MeshStandardMaterial({
+    //   map: earthTexture,
+    // });
+    // const earthMesh = new THREE.Mesh(earthGeometry, earthMaterial);
+    // earthMesh.position.x = 12;
+    // test.scene.add(earthMesh);
+
+    // part 2.1 - start rotating the earth around the sun
+    // const animate = () => {
+    //   test.scene.rotation.y += 0.005;
+    //   window.requestAnimationFrame(animate);
+    // };
+    // animate();
+
+    // part 2.2 - rotate earth around the sun by updating position
+    // const animate = () => {
+    //   const t = test.clock.getElapsedTime();
+    //   earthMesh.position.x = 12 * Math.cos(t / 2);
+    //   earthMesh.position.z = -12 * Math.sin(t / 2);
+    //   window.requestAnimationFrame(animate);
+    // };
+    // animate();
+
+    // part 2.3 - add day night cycle to earth
+    // const animate = () => {
+    //   const t = test.clock.getElapsedTime();
+    //   earthMesh.position.x = 12 * Math.cos(t / 2);
+    //   earthMesh.position.z = -12 * Math.sin(t / 2);
+    //   earthMesh.rotation.y = t;
+    //   window.requestAnimationFrame(animate);
+    // };
+    // animate();
+
+    // part 2.4 - what about the moon?
+    // pretty complicated, eh?
+
+    // part 3 - refactor initial sun + earth scene groups
+    const solarSystemGroup = new THREE.Group();
+    const earthOrbit = new THREE.Group();
+
+    const sunGeometry = new THREE.SphereGeometry(4);
+    const sunMaterial = new THREE.MeshStandardMaterial({
+      map: sunTexture,
     });
-    const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
-    test.scene.add(boxMesh);
+    const sunMesh = new THREE.Mesh(sunGeometry, sunMaterial);
+    solarSystemGroup.add(sunMesh);
+    test.scene.add(solarSystemGroup);
+
+    const earthGeometry = new THREE.SphereGeometry(2);
+    const earthMaterial = new THREE.MeshStandardMaterial({
+      map: earthTexture,
+    });
+    const earthMesh = new THREE.Mesh(earthGeometry, earthMaterial);
+    earthMesh.position.x = 12;
+    earthOrbit.add(earthMesh);
+    test.scene.add(earthOrbit);
+
+    // part 3.1 - start rotating the earth around the sun
+    // const animate = () => {
+    //   earthOrbit.rotation.y += 0.005;
+    //   window.requestAnimationFrame(animate);
+    // };
+    // animate();
+
+    // part 3.2 - add the moon to the earth orbit
+    const moonOrbit = new THREE.Group();
+    const moonGeometry = new THREE.SphereGeometry(1);
+    const moonMaterial = new THREE.MeshStandardMaterial({
+      map: moonTexture,
+    });
+    const moonMesh = new THREE.Mesh(moonGeometry, moonMaterial);
+    moonOrbit.add(moonMesh);
+    moonOrbit.position.x = 12;
+    moonMesh.position.x = 4;
+    earthOrbit.add(moonOrbit);
+
+    // part 3.3 - animate earth rotation and moon rotation
+    const animate = () => {
+      earthOrbit.rotation.y += 0.005;
+      moonOrbit.rotation.y += 0.05;
+      window.requestAnimationFrame(animate);
+    };
+    animate();
   }, []);
 
   return (
