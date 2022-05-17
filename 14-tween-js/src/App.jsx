@@ -21,22 +21,17 @@ function App() {
     const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
     test.scene.add(boxMesh);
 
-    const startCoords = { x: 0, y: 0, z: 0 };
-    const endCoords = { x: 5, y: 0, z: 0 };
-    const tween1 = new TWEEN.Tween(startCoords)
-      .to(endCoords, 2000)
+    const tween1 = new TWEEN.Tween({ x: 0, y: 0, z: 0 })
+      .to({ x: 5, y: 0, z: 0 }, 1000)
       .onUpdate(({ x, y, z }) => {
-        console.log(x, y, z);
         boxMesh.position.set(x, y, z);
       });
 
-    const tween2 = new TWEEN.Tween(endCoords)
-      .to(startCoords, 2000)
+    const tween2 = new TWEEN.Tween({ x: 5, y: 0, z: 0 })
+      .to({ x: 0, y: 0, z: 0 }, 1000)
       .onUpdate(({ x, y, z }) => {
-        console.log(x, y, z);
         boxMesh.position.set(x, y, z);
-      })
-      .start();
+      });
 
     tween1.chain(tween2);
     tween2.chain(tween1);
