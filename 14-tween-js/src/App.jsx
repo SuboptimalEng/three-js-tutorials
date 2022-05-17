@@ -60,36 +60,58 @@ function App() {
     //     boxMesh.rotation.x = coords.xRotation;
     //   })
     //   .repeat(Infinity)
-    //   .delay(1000);
+    //   .delay(500);
     // tween.start();
 
     // part 3 - tween.js easing functions (show pics)
-    const tween = new TWEEN.Tween({ x: 0, y: 0, xRotation: 0 })
+    // const tween1 = new TWEEN.Tween({ x: 0, y: 0, xRotation: 0 })
+    //   .to({ x: 5, y: 8, xRotation: Math.PI / 2 }, 2000)
+    //   .onUpdate((coords) => {
+    //     boxMesh.position.x = coords.x;
+    //     boxMesh.position.y = coords.y;
+    //     boxMesh.rotation.x = coords.xRotation;
+    //   })
+    //   .easing(TWEEN.Easing.Exponential.InOut)
+    //   .repeat(Infinity)
+    //   .delay(500);
+    // tween1.start();
+
+    // const boxMesh2 = new THREE.Mesh(boxGeometry, boxMaterial);
+    // test.scene.add(boxMesh2);
+    // const tween2 = new TWEEN.Tween({ x: 0, y: 0, xRotation: 0 })
+    //   .to({ x: -5, y: 8, xRotation: Math.PI / 2 }, 2000)
+    //   .onUpdate((coords) => {
+    //     boxMesh2.position.x = coords.x;
+    //     boxMesh2.position.y = coords.y;
+    //     boxMesh2.rotation.x = coords.xRotation;
+    //   })
+    //   .easing(TWEEN.Easing.Linear.None)
+    //   .repeat(Infinity)
+    //   .delay(500);
+    // tween2.start();
+
+    // part 3 - chaining tweens together
+    const tween1 = new TWEEN.Tween({ x: 0, y: 0, xRotation: 0 })
       .to({ x: 5, y: 8, xRotation: Math.PI / 2 }, 2000)
       .onUpdate((coords) => {
         boxMesh.position.x = coords.x;
         boxMesh.position.y = coords.y;
         boxMesh.rotation.x = coords.xRotation;
       })
-      .easing(TWEEN.Easing.Quartic.InOut)
-      .repeat(Infinity)
-      .delay(1000);
-    tween.start();
-
-    // part 3 - chaining tweens together
-    // const tween1 = new TWEEN.Tween({ x: 0 })
-    //   .to({ x: 5 }, 1000)
-    //   .onUpdate(({ x }) => {
-    //     boxMesh.position.setX(x);
-    //   });
-    // const tween2 = new TWEEN.Tween({ x: 5 })
-    //   .to({ x: 0 }, 1000)
-    //   .onUpdate(({ x }) => {
-    //     boxMesh.position.setX(x);
-    //   });
-    // tween1.chain(tween2);
-    // tween2.chain(tween1);
-    // tween1.start();
+      .easing(TWEEN.Easing.Exponential.InOut)
+      .delay(100);
+    const tween2 = new TWEEN.Tween({ x: 5, y: 8, xRotation: Math.PI / 2 })
+      .to({ x: 0, y: 0, xRotation: 0 }, 2000)
+      .onUpdate((coords) => {
+        boxMesh.position.x = coords.x;
+        boxMesh.position.y = coords.y;
+        boxMesh.rotation.x = coords.xRotation;
+      })
+      .easing(TWEEN.Easing.Linear.None)
+      .delay(100);
+    tween1.chain(tween2);
+    tween2.chain(tween1);
+    tween1.start();
   }, []);
 
   return (
