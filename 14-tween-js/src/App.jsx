@@ -12,36 +12,84 @@ function App() {
     test.animate();
 
     // part 0 - add axis helper
-    const axesHelper = new THREE.AxesHelper(16);
+    const axesHelper = new THREE.AxesHelper(8);
     test.scene.add(axesHelper);
 
-    // part 1 - boilerplate code
-    const boxGeometry = new THREE.BoxGeometry(8, 8, 8);
+    // part 0 - add box mesh which will be tweened
+    const boxGeometry = new THREE.BoxGeometry(4, 4, 4);
     const boxMaterial = new THREE.MeshNormalMaterial();
     const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
     test.scene.add(boxMesh);
 
-    const tween1 = new TWEEN.Tween({ x: 0, y: 0, z: 0 })
-      .to({ x: 5, y: 0, z: 0 }, 1000)
-      .onUpdate(({ x, y, z }) => {
-        boxMesh.position.set(x, y, z);
-      });
+    // part 0 - add ground mesh for reference
+    const groundGeometry = new THREE.BoxGeometry(24, 1, 24);
+    const groundMaterial = new THREE.MeshNormalMaterial();
+    const groundMesh = new THREE.Mesh(groundGeometry, groundMaterial);
+    groundMesh.position.y = -4;
+    test.scene.add(groundMesh);
 
-    const tween2 = new TWEEN.Tween({ x: 5, y: 0, z: 0 })
-      .to({ x: 0, y: 0, z: 0 }, 1000)
-      .onUpdate(({ x, y, z }) => {
-        boxMesh.position.set(x, y, z);
-      });
-
-    tween1.chain(tween2);
-    tween2.chain(tween1);
-    tween1.start();
-
+    // part 0 - ensure that tween.js is running
     const animate = (t) => {
       TWEEN.update(t);
       window.requestAnimationFrame(animate);
     };
     animate();
+
+    // part 1 - set up basic tween.js examples
+    // const tween = new TWEEN.Tween({ x: 0 })
+    //   .to({ x: 5 }, 2000)
+    //   .onUpdate((coords) => {
+    //     boxMesh.position.x = coords.x;
+    //   });
+    // tween.start();
+
+    // const tween = new TWEEN.Tween({ x: 0, xRotation: 0 })
+    //   .to({ x: 5, xRotation: Math.PI / 2 }, 2000)
+    //   .onUpdate((coords) => {
+    //     boxMesh.position.x = coords.x;
+    //     boxMesh.rotation.x = coords.xRotation;
+    //   });
+    // tween.start();
+
+    // part 2 - tween.js functions (repeat, delay)
+    // const tween = new TWEEN.Tween({ x: 0, y: 0, xRotation: 0 })
+    //   .to({ x: 5, y: 8, xRotation: Math.PI / 2 }, 2000)
+    //   .onUpdate((coords) => {
+    //     boxMesh.position.x = coords.x;
+    //     boxMesh.position.y = coords.y;
+    //     boxMesh.rotation.x = coords.xRotation;
+    //   })
+    //   .repeat(Infinity)
+    //   .delay(1000);
+    // tween.start();
+
+    // part 3 - tween.js easing functions (show pics)
+    const tween = new TWEEN.Tween({ x: 0, y: 0, xRotation: 0 })
+      .to({ x: 5, y: 8, xRotation: Math.PI / 2 }, 2000)
+      .onUpdate((coords) => {
+        boxMesh.position.x = coords.x;
+        boxMesh.position.y = coords.y;
+        boxMesh.rotation.x = coords.xRotation;
+      })
+      .easing(TWEEN.Easing.Quartic.InOut)
+      .repeat(Infinity)
+      .delay(1000);
+    tween.start();
+
+    // part 3 - chaining tweens together
+    // const tween1 = new TWEEN.Tween({ x: 0 })
+    //   .to({ x: 5 }, 1000)
+    //   .onUpdate(({ x }) => {
+    //     boxMesh.position.setX(x);
+    //   });
+    // const tween2 = new TWEEN.Tween({ x: 5 })
+    //   .to({ x: 0 }, 1000)
+    //   .onUpdate(({ x }) => {
+    //     boxMesh.position.setX(x);
+    //   });
+    // tween1.chain(tween2);
+    // tween2.chain(tween1);
+    // tween1.start();
   }, []);
 
   return (
