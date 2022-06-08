@@ -153,6 +153,11 @@ function App() {
       .addColor(plSettings, 'color')
       .onChange((value) => pl.color.set(value));
     plFolder.open();
+
+    // Destroy the GUI on reload to prevent multiple stale UI from being displayed on screen.
+    return () => {
+      gui.destroy();
+    };
   }, []);
 
   return (
