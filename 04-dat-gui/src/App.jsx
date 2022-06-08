@@ -72,6 +72,11 @@ function App() {
     //       console.log('Hello!');
     //     }
     //   });
+
+    // Destroy the GUI on reload to prevent multiple stale UI from being displayed on screen.
+    return () => {
+      gui.destroy();
+    };
   }, []);
 
   return (
