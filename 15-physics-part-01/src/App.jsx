@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import * as THREE from 'three';
 import * as CANNON from 'cannon-es';
-// import CannonDebugger from 'cannon-es-debugger';
+import CannonDebugger from 'cannon-es-debugger';
 
 import SceneInit from './lib/SceneInit';
 
@@ -15,6 +15,11 @@ function App() {
     // part 0 - add axis helper
     const axesHelper = new THREE.AxesHelper(8);
     test.scene.add(axesHelper);
+
+    // const boxGeometry = new THREE.BoxGeometry(4, 4, 4);
+    // const boxMaterial = new THREE.MeshNormalMaterial();
+    // const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
+    // test.scene.add(boxMesh);
 
     // part 1 - set up world physics with a few objects
     // note - code is from the cannon-es documentation
@@ -42,16 +47,16 @@ function App() {
     physicsWorld.addBody(sphereBody);
 
     // run the physics simulation on each animation frame
-    const animate = () => {
-      physicsWorld.fixedStep();
-      window.requestAnimationFrame(animate);
-    };
-    animate();
+    // const animate = () => {
+    //   physicsWorld.fixedStep();
+    //   window.requestAnimationFrame(animate);
+    // };
+    // animate();
 
     // part 2 - bind cannon debugger to the three.js scene + physics world
-    // const cannonDebugger = new CannonDebugger(test.scene, physicsWorld, {
-    //   // color: 0xff0000,
-    // });
+    const cannonDebugger = new CannonDebugger(test.scene, physicsWorld, {
+      // color: 0xff0000,
+    });
 
     // const animate = () => {
     //   physicsWorld.fixedStep();
@@ -61,10 +66,10 @@ function App() {
     // animate();
 
     // part 3 - combine the three.js game world with the physics world
-    // const geometry = new THREE.SphereGeometry(radius);
-    // const material = new THREE.MeshNormalMaterial();
-    // const sphereMesh = new THREE.Mesh(geometry, material);
-    // test.scene.add(sphereMesh);
+    const geometry = new THREE.SphereGeometry(radius);
+    const material = new THREE.MeshNormalMaterial();
+    const sphereMesh = new THREE.Mesh(geometry, material);
+    test.scene.add(sphereMesh);
 
     // const animate = () => {
     //   physicsWorld.fixedStep();
@@ -76,28 +81,28 @@ function App() {
     // animate();
 
     // part 4 - add a box object
-    // const boxBody = new CANNON.Body({
-    //   mass: 5,
-    //   shape: new CANNON.Box(new CANNON.Vec3(1, 1, 1)),
-    // });
-    // boxBody.position.set(1, 10, 0);
-    // physicsWorld.addBody(boxBody);
+    const boxBody = new CANNON.Body({
+      mass: 5,
+      shape: new CANNON.Box(new CANNON.Vec3(1, 1, 1)),
+    });
+    boxBody.position.set(1, 10, 0);
+    physicsWorld.addBody(boxBody);
 
-    // const boxGeometry = new THREE.BoxGeometry(2, 2, 2);
-    // const boxMaterial = new THREE.MeshNormalMaterial();
-    // const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
-    // test.scene.add(boxMesh);
+    const boxGeometry = new THREE.BoxGeometry(2, 2, 2);
+    const boxMaterial = new THREE.MeshNormalMaterial();
+    const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
+    test.scene.add(boxMesh);
 
-    // const animate = () => {
-    //   physicsWorld.fixedStep();
-    //   cannonDebugger.update();
-    //   boxMesh.position.copy(boxBody.position);
-    //   boxMesh.quaternion.copy(boxBody.quaternion);
-    //   sphereMesh.position.copy(sphereBody.position);
-    //   sphereMesh.quaternion.copy(sphereBody.quaternion);
-    //   window.requestAnimationFrame(animate);
-    // };
-    // animate();
+    const animate = () => {
+      physicsWorld.fixedStep();
+      cannonDebugger.update();
+      boxMesh.position.copy(boxBody.position);
+      boxMesh.quaternion.copy(boxBody.quaternion);
+      sphereMesh.position.copy(sphereBody.position);
+      sphereMesh.quaternion.copy(sphereBody.quaternion);
+      window.requestAnimationFrame(animate);
+    };
+    animate();
   }, []);
 
   return (
