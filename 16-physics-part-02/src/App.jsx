@@ -13,8 +13,8 @@ function App() {
     test.animate();
 
     // part 0 - add axis helper
-    const axesHelper = new THREE.AxesHelper(8);
-    test.scene.add(axesHelper);
+    // const axesHelper = new THREE.AxesHelper(8);
+    // test.scene.add(axesHelper);
 
     // note - code is from the cannon-es documentation
     // code - https://github.com/pmndrs/cannon-es/blob/master/examples/rigid_vehicle.html
@@ -161,15 +161,38 @@ function App() {
     });
 
     // sync game world with physics world
+    const planeGeometry = new THREE.PlaneGeometry(10, 10);
+    const planeMaterial = new THREE.MeshStandardMaterial({
+      color: 0xfafafa,
+    });
+    const planeMesh = new THREE.Mesh(planeGeometry, planeMaterial);
+    planeMesh.rotateX(-Math.PI / 2);
+    // test.scene.add(planeMesh);
+
     const boxGeometry = new THREE.BoxGeometry(8, 1, 4);
-    const boxMaterial = new THREE.MeshNormalMaterial();
+    const boxMaterial = new THREE.MeshStandardMaterial();
     const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
     test.scene.add(boxMesh);
 
     const sphereGeometry1 = new THREE.SphereGeometry(1);
     const sphereMaterial1 = new THREE.MeshNormalMaterial();
     const sphereMesh1 = new THREE.Mesh(sphereGeometry1, sphereMaterial1);
-    test.scene.add(sphereMesh1);
+    // test.scene.add(sphereMesh1);
+
+    const sphereGeometry2 = new THREE.SphereGeometry(1);
+    const sphereMaterial2 = new THREE.MeshNormalMaterial();
+    const sphereMesh2 = new THREE.Mesh(sphereGeometry2, sphereMaterial2);
+    // test.scene.add(sphereMesh2);
+
+    const sphereGeometry3 = new THREE.SphereGeometry(1);
+    const sphereMaterial3 = new THREE.MeshNormalMaterial();
+    const sphereMesh3 = new THREE.Mesh(sphereGeometry3, sphereMaterial3);
+    // test.scene.add(sphereMesh3);
+
+    const sphereGeometry4 = new THREE.SphereGeometry(1);
+    const sphereMaterial4 = new THREE.MeshNormalMaterial();
+    const sphereMesh4 = new THREE.Mesh(sphereGeometry4, sphereMaterial4);
+    // test.scene.add(sphereMesh4);
 
     const animate = () => {
       physicsWorld.fixedStep();
@@ -178,6 +201,12 @@ function App() {
       boxMesh.quaternion.copy(carBody.quaternion);
       sphereMesh1.position.copy(wheelBody1.position);
       sphereMesh1.quaternion.copy(wheelBody1.quaternion);
+      sphereMesh2.position.copy(wheelBody2.position);
+      sphereMesh2.quaternion.copy(wheelBody2.quaternion);
+      sphereMesh3.position.copy(wheelBody3.position);
+      sphereMesh3.quaternion.copy(wheelBody3.quaternion);
+      sphereMesh4.position.copy(wheelBody4.position);
+      sphereMesh4.quaternion.copy(wheelBody4.quaternion);
       window.requestAnimationFrame(animate);
     };
     animate();
