@@ -67,6 +67,22 @@ This repo (and tutorial series) aims to improve the learning experience for thos
 
   <img src="/_thumbnails/12-shaders-in-vscode.png">
 
+- 13 - [How to Organize Code with Three.js Groups](https://www.youtube.com/watch?v=tXBpv9cDmhg)
+
+  <img src="/_thumbnails/13-object-groups.png">
+
+- 14 - [How to Animate Objects with Tween.js](https://www.youtube.com/watch?v=zXqCj8jeAi0)
+
+  <img src="/_thumbnails/14-tween-js.png">
+
+- 15 - [Three.js + Cannon.js Physics Part 01](https://www.youtube.com/watch?v=Ht1JzJ6kB7g)
+
+  <img src="/_thumbnails/15-physics-part-01.png">
+
+- 16 - [Three.js + Cannon.js Physics Part 02](https://www.youtube.com/watch?v=RYWMKucBDiI)
+
+  <img src="/_thumbnails/16-physics-part-02.png">
+
 ## Helpful Resources
 
 - [Three.js](https://threejs.org/)
