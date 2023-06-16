@@ -94,10 +94,10 @@ This repo (and tutorial series) aims to improve the learning experience for thos
 
 ### 09-raycaster
 
-👉 ["Shiba"](https://sketchfab.com/3d-models/shiba-faef9fe5ace445e7b2989d1c1ece361c) by [zixisun02](https://sketchfab.com/zixisun51) is licensed under [CC Attribution](http://creativecommons.org/licenses/by/4.0/)
+- ["Shiba"](https://sketchfab.com/3d-models/shiba-faef9fe5ace445e7b2989d1c1ece361c) by [zixisun02](https://sketchfab.com/zixisun51) is licensed under [CC Attribution](http://creativecommons.org/licenses/by/4.0/)
 
 ### 07-import-model
 
-👉 ["Shiba"](https://sketchfab.com/3d-models/shiba-faef9fe5ace445e7b2989d1c1ece361c) by [zixisun02](https://sketchfab.com/zixisun51) is licensed under [CC Attribution](http://creativecommons.org/licenses/by/4.0/)
+- ["Shiba"](https://sketchfab.com/3d-models/shiba-faef9fe5ace445e7b2989d1c1ece361c) by [zixisun02](https://sketchfab.com/zixisun51) is licensed under [CC Attribution](http://creativecommons.org/licenses/by/4.0/)
 
-👉 ["Hand Anatomy"](https://sketchfab.com/3d-models/hand-anatomy-ada8498be9754e9f90b2eecc1b4ef8c5) by [Caterina Zamai](https://www.artstation.com/zaccate) is licensed under [CC Attribution](https://creativecommons.org/licenses/by/4.0/)
+- ["Hand Anatomy"](https://sketchfab.com/3d-models/hand-anatomy-ada8498be9754e9f90b2eecc1b4ef8c5) by [Caterina Zamai](https://www.artstation.com/zaccate) is licensed under [CC Attribution](https://creativecommons.org/licenses/by/4.0/)
