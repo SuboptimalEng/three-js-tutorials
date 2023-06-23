@@ -21,7 +21,7 @@ This repo (and tutorial series) aims to improve the learning experience for thos
 
 - 01 - [Introduction to Three.js + 3D Programming](https://www.youtube.com/watch?v=MSZ7nqqgVKc)
 
-  <img src="/_thumbnails/01-intro.png">
+<img src="/_thumbnails/01-intro.png">
 
 - 02 - [React + Three.js Setup Tutorial](https://www.youtube.com/watch?v=d63N4g8p_wI)
 
