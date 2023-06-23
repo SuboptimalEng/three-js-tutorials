@@ -25,63 +25,63 @@ This repo (and tutorial series) aims to improve the learning experience for thos
 
 - 02 - [React + Three.js Setup Tutorial](https://www.youtube.com/watch?v=d63N4g8p_wI)
 
-  <img src="/_thumbnails/02-setup-guide.png">
+<img src="/_thumbnails/02-setup-guide.png">
 
 - 03 - [Three.js Geometry Tutorial for Beginners](https://www.youtube.com/watch?v=K_CwmMlNmQo)
 
-  <img src="/_thumbnails/03-geometry.png">
+<img src="/_thumbnails/03-geometry.png">
 
 - 04 - [Dat.GUI Setup Guide and Tutorial](https://www.youtube.com/watch?v=JyhhHhoqK2o)
 
-  <img src="/_thumbnails/04-dat-gui.png">
+<img src="/_thumbnails/04-dat-gui.png">
 
 - 05 - [Three.js Lighting Tutorial with Examples](https://www.youtube.com/watch?v=bsLosbweLNE)
 
-  <img src="/_thumbnails/05-lighting.png">
+<img src="/_thumbnails/05-lighting.png">
 
 - 06 - [How to Add Textures to 3D Geometry](https://www.youtube.com/watch?v=vLz2Rk1r_gQ)
 
-  <img src="/_thumbnails/06-textures.png">
+<img src="/_thumbnails/06-textures.png">
 
 - 07 - [How to Import GLTF Models in Three.js](https://www.youtube.com/watch?v=WBe3xrV4CPM)
 
-  <img src="/_thumbnails/07-import-model.png">
+<img src="/_thumbnails/07-import-model.png">
 
 - 08 - [How to Load Fonts in a Three.js Scene](https://www.youtube.com/watch?v=l7K9AMnesJQ)
 
-  <img src="/_thumbnails/08-font-loader.png">
+<img src="/_thumbnails/08-font-loader.png">
 
 - 09 - [How to Handle Mouse Input with Raycaster](https://www.youtube.com/watch?v=CbUhot3K-gc)
 
-  <img src="/_thumbnails/09-raycaster.png">
+<img src="/_thumbnails/09-raycaster.png">
 
 - 10 - [GLSL Vertex + Fragment Shaders Part 01](https://www.youtube.com/watch?v=EntBBM6nqQA)
 
-  <img src="/_thumbnails/10-shaders-part-01.png">
+<img src="/_thumbnails/10-shaders-part-01.png">
 
 - 11 - [GLSL Vertex + Fragment Shaders Part 02](https://www.youtube.com/watch?v=dRo7SnOJlEM)
 
-  <img src="/_thumbnails/11-shaders-part-02.png">
+<img src="/_thumbnails/11-shaders-part-02.png">
 
 - 12 - [Writing Shaders in VS Code + Importing GLSL Files in JS](https://www.youtube.com/watch?v=RDughHM9qoE)
 
-  <img src="/_thumbnails/12-shaders-in-vscode.png">
+<img src="/_thumbnails/12-shaders-in-vscode.png">
 
 - 13 - [How to Organize Code with Three.js Groups](https://www.youtube.com/watch?v=tXBpv9cDmhg)
 
-  <img src="/_thumbnails/13-object-groups.png">
+<img src="/_thumbnails/13-object-groups.png">
 
 - 14 - [How to Animate Objects with Tween.js](https://www.youtube.com/watch?v=zXqCj8jeAi0)
 
-  <img src="/_thumbnails/14-tween-js.png">
+<img src="/_thumbnails/14-tween-js.png">
 
 - 15 - [Three.js + Cannon.js Physics Part 01](https://www.youtube.com/watch?v=Ht1JzJ6kB7g)
 
-  <img src="/_thumbnails/15-physics-part-01.png">
+<img src="/_thumbnails/15-physics-part-01.png">
 
 - 16 - [Three.js + Cannon.js Physics Part 02](https://www.youtube.com/watch?v=RYWMKucBDiI)
 
-  <img src="/_thumbnails/16-physics-part-02.png">
+<img src="/_thumbnails/16-physics-part-02.png">
 
 ## Helpful Resources
 
